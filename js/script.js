@@ -1,5 +1,9 @@
 var socket = io();
 
+function gotoBottom(){
+   window.scrollTo(0, Math.pow(2, 63) - 1);
+}
+
 function sendMessage(message) {
     socket.emit('message', {message: message});
 }
@@ -13,6 +17,7 @@ function addMessage(message) {
 
 socket.on('message', function(data) {
     addMessage(data);
+    gotoBottom();
 });
 
 var input = document.getElementById("input");
