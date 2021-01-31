@@ -1,20 +1,13 @@
 <html>
 <head>
     <title>Live Chat</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js"
-            integrity="sha512-+l9L4lMTFNy3dEglQpprf7jQBhQsQ3/WvOnjaN/+/L4i0jOstgScV0q2TjfvRF4V+ZePMDuZYIQtg5T4MKr+MQ=="
-            crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf-8">
-    //var socket = io();
-    //socket.on('connect', function() {
-    //    socket.emit('message', {data: 'I\'m connected!'});
-    //});
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js" integrity="sha512-+l9L4lMTFNy3dEglQpprf7jQBhQsQ3/WvOnjaN/+/L4i0jOstgScV0q2TjfvRF4V+ZePMDuZYIQtg5T4MKr+MQ==" crossorigin="anonymous"></script>
+    <script src="js/script.js" defer></script>
     <style>
         html {
             margin: 0;
             padding: 0;
+            font-size: 18px;
         }
         #input {
             position: fixed;
@@ -26,13 +19,15 @@
         }
         #messages {
             list-style: none;
+            padding: 0;
+        }
+        #messages:nth-child(even) {
+            background-color: #666;
         }
     </style>
 </head>
 <body>
 <ul id="messages">
-    <li>Guy: Lorem Ipsum</li>
-    <li>Guy 2: Lorem Ipsum</li>
 </ul>
 <input type="text" id="input">
 </body>

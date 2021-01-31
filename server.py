@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask_socketio import SocketIO
 
 app = Flask(__name__)
@@ -7,12 +7,18 @@ socketio = SocketIO(app)
 
 @socketio.on('message')
 def handle_message(data):
-    print(f'received message: {data}')
+    print(f'received message: {data["message"]}')
+    socketio.emit('message', data["message"], broadcast=True)
 
 
 @app.route('/')
 def index():
     return render_template("base.html")
+
+
+@app.route('/js/<path:path>')
+def script(path):
+    return send_from_directory('js', path)
 
 
 if __name__ == '__main__':
