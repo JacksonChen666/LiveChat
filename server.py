@@ -7,7 +7,6 @@ socketio = SocketIO(app)
 
 @socketio.on('message')
 def handle_message(data):
-    print(f'received message: {data["message"]}')
     socketio.emit('message', data["message"], broadcast=True)
 
 
