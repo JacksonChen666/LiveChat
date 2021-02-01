@@ -7,7 +7,7 @@ socketio = SocketIO(app)
 
 @socketio.on('message')
 def handle_message(data):
-    socketio.emit('message', data["message"], broadcast=True)
+    socketio.emit('message', data, broadcast=True)
 
 
 @app.route('/')

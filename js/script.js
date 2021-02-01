@@ -16,7 +16,7 @@ function addMessage(message) {
 }
 
 socket.on('message', function(data) {
-    addMessage(data);
+    addMessage(data["message"]);
     gotoBottom();
 });
 
